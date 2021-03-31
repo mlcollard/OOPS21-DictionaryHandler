@@ -4,7 +4,7 @@
     Creates a dictionary of words
 */
 
-#include "DictionaryWordProcessor.hpp"
+#include "DictionaryHandler.hpp"
 #include "WordProcessor.hpp"
 #include <iostream>
 #include <fstream>
@@ -19,11 +19,12 @@ int main(int argc, char* argv[]) {
 
     // collect a set of words from the input file
     std::ifstream in(argv[1]);
-    DictionaryWordProcessor reader(in);
+    DictionaryHandler dictionary;
+    WordProcessor reader(in, dictionary);
     reader.read();
 
     // output the dictionary to standard out
-    reader.outputWords(std::cout);
+    dictionary.outputWords(std::cout);
 
     return 0;
 }

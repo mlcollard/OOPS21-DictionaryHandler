@@ -11,8 +11,8 @@
 #include <memory>
 
 // constructor with input stream and processWord function
-WordProcessor::WordProcessor(std::istream& in)
-    : input(in)
+WordProcessor::WordProcessor(std::istream& in, WordProcessorHandler& handler)
+    : input(in), handler(handler)
 {}
 
 // read all the words from a file and apply process() to them
